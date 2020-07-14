@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Project</title>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .heading {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const Hello = (props) => {
+        //const Hello = ({library, message}) => {
+            //console.log(props);
+            return (
+                <div className="heading">
+                    
+                    <h1>Welcome to {props.library}</h1>
+                    <p>{props.message}</p>
+
+                    <h1>Welcome to {/*library*/}</h1>
+                    <p>{/*message*/}</p>
+
+                </div>
+            )
+        };
+        let city = "Dhaka";
+
+        ReactDOM.render(
+            <Hello library="React" message="Enjoy!!" />,
+            document.getElementById("root")
+        );
+    </script>
+</body>
+
+</html>

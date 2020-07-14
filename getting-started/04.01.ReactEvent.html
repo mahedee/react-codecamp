@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Project</title>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .heading {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const Lake = ({ name }) => <h1>{name}</h1>
+
+        class App extends React.Component {
+            state = {
+                loggedIn: false
+            }
+
+            logIn = () => this.setState({ loggedIn: true })
+            logOut = () => this.setState({ loggedIn: false })
+
+            render() {
+                return (
+                    <div className="heading">
+                        <button onClick={this.logIn}>Login</button>
+                        <button onClick={this.logOut}>Logout</button>
+                        <div>The user is {this.state.loggedIn ? 
+                                    "Logged in" : "Not logged in"}</div>
+                        <Lake name="Dhanmondi Lake" />
+                        <Lake name="Gulshan Lake" />
+                        <Lake name="Hatirjheel Lake" />
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById("root")
+        );
+    </script>
+</body>
+
+</html>

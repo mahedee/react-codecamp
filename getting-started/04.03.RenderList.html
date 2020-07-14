@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Project</title>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .heading {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        
+        const lakeList = [
+            "Dhanmondil Lake",
+            "Gulshan Lake",
+            "Bashundhara Lake"
+        ];
+
+        const lakeObjList = [
+            {id: "1", name: "Dhanmondi Lake", trailhead: "Is in Dhanmondi"},
+            {id: "2", name: "Gulshan Lake", trailhead: "Is in Gulshan"},
+            {id: "3", name: "Bashundhara Lake", trailhead: "Is in Bashundhara"},
+        ];
+
+
+        //const App = ({lakes}) => (
+        const App = ({lakesObj}) => (
+            <div>
+                <ul>
+                    {
+                        //lakes.map((lake, i) =>
+                        //<li key = {i}>{lake}</li>
+                    //)
+                    }
+                </ul>
+                <h2>Iterate list of objects</h2>
+                <ul>
+                    {lakesObj.map(lakeObj =>
+                        <li key = {lakeObj.id}>{lakeObj.name} | {lakeObj.trailhead}</li>
+                    )}
+                </ul>
+            </div>
+        )
+
+
+
+        ReactDOM.render(
+            //<App lakes={lakeList}/>,
+            <App lakesObj = {lakeObjList} />,
+            document.getElementById("root")
+        );
+    </script>
+</body>
+
+</html>
