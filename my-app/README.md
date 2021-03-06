@@ -1,3 +1,7 @@
+# References
+* https://reactjs.org/tutorial/tutorial.html#setup-option-1-write-code-in-the-browser
+* Done so far (before): Developer Tools
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
