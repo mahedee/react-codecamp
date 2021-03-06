@@ -1,6 +1,6 @@
 # References
 * https://reactjs.org/tutorial/tutorial.html#setup-option-1-write-code-in-the-browser
-* Done so far (before): Developer Tools
+* Done so far (before): Why Immutability is important
 
 # Getting Started with Create React App
 
