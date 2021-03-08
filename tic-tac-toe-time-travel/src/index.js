@@ -44,27 +44,28 @@ function Square(props){
     //     };
     // }
 
-    handleClick(i){
-        const squares = this.state.squares.slice();
+    // handleClick(i){
+    //     const squares = this.state.squares.slice();
 
-        //Ignore a click if someone has won the game or square is already filled
-        if(calculateWinner(squares) || squares[i]){
-            return;
-        }
+    //     //Ignore a click if someone has won the game or square is already filled
+    //     if(calculateWinner(squares) || squares[i]){
+    //         return;
+    //     }
 
-        //If xIsNext is true then X otherwise O
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
-        this.setState({
-            squares: squares,
-            xIsNext: !this.state.xIsNext, //Flip the current state
-        });
-    }
+    //     //If xIsNext is true then X otherwise O
+    //     squares[i] = this.state.xIsNext ? 'X' : 'O';
+    //     this.setState({
+    //         squares: squares,
+    //         xIsNext: !this.state.xIsNext, //Flip the current state
+    //     });
+    // }
 
     renderSquare(i) {
-        return <Square 
+        return ( <Square 
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
         />
+        );
     //   return <Square value={i} />;
     }
   
@@ -99,12 +100,13 @@ function Square(props){
         history: [{
           squares: Array(9).fill(null),
         }],
+        stepNumber: 0,
         xIsNext: true,
       }
     }
 
     handleClick(i){
-      const history = this.state.history;
+      const history = this.state.history.slice(0, this.state.stepNumber + 1);
       const current = history[history.length - 1];
       const squares = current.squares.slice();
 
@@ -116,15 +118,35 @@ function Square(props){
         history: history.concat([{
           squares: squares,
         }]),
+        stepNumber: history.length,
         xIsNext: !this.state.xIsNext,
       });
 
     }
 
+    jumpTo(step){
+      this.setState({
+        stepNumber: step,
+        xIsNext: (step % 2) === 0,
+      });
+    }
+
     render() {
       const history = this.state.history;
-      const current = history[history.length - 1];
+      const current = history[this.state.stepNumber];
       const winner = calculateWinner(current.squares);
+
+      const moves = history.map((step, move) =>{
+        const desc = move ?
+        'Go to move #' + move :
+        'Go to game start';
+
+        return(
+          <li key={move}>
+            <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          </li>
+        );
+      });
 
       let status;
       if(winner){
@@ -143,7 +165,7 @@ function Square(props){
           </div>
           <div className="game-info">
             <div>{status}</div>
-            <ol>{/* TODO */}</ol>
+            <ol>{moves}</ol>
           </div>
         </div>
       );
