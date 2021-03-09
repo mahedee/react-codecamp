@@ -12,7 +12,12 @@ namespace Trips.Data
 
         public void DeleteTrip(int tripId)
         {
-            throw new System.NotImplementedException();
+            var trip = Data.Trips.FirstOrDefault(n => n.Id == tripId);
+
+            if(trip != null)
+            {
+                Data.Trips.Remove(trip);
+            }
         }
  
         public List<Trip> GetAllTrips()
@@ -20,14 +25,18 @@ namespace Trips.Data
             return Data.Trips.ToList();
         }
 
-        public Trip GetTripById(int tripId)
-        {
-            throw new System.NotImplementedException();
-        }
+        public Trip GetTripById(int tripId) => Data.Trips.FirstOrDefault(n => n.Id == tripId);
 
         public void UpdateTrip(int tripId, Trip trip)
         {
-            throw new System.NotImplementedException();
+           var oldTrip = Data.Trips.FirstOrDefault(n => n.Id == tripId);
+           if(oldTrip != null)
+           {
+               oldTrip.Name = trip.Name; 
+               oldTrip.Description = trip.Description;
+               oldTrip.DateStarted = trip.DateStarted;
+               oldTrip.DateCompleted = trip.DateCompleted;
+           }
         }
     }
 }
