@@ -6,8 +6,14 @@ export class Home extends Component {
   render () {
     return (
       <div>
-        <h1>Hello, world!</h1>
-        <p>Welcome to your new single-page application, built with:</p>
+        <h1>Welcome to trips manager!</h1>
+        <p>Use this manager to manage your trips, by: </p>
+        <ul>
+          <li>Add a new trip</li>
+          <li>Update a trip</li>
+          <li>Delete a trip</li>
+          <li>Show all trips</li>
+        </ul>
         <ul>
           <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
           <li><a href='https://facebook.github.io/react/'>React</a> for client-side code</li>
