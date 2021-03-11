@@ -219,8 +219,23 @@ class Page extends React.Component{
   }
 }
 
+function ListItem(props){
+  return <li>{props.value}</li>;
+}
 
+function NumberList(props){
+  const numbers = props.numbers;
 
+  const listItems = numbers.map((number) =>
+    <ListItem key ={number.toString()} value = {number}></ListItem>
+  );
+
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
 ReactDOM.render(
   // <h1>Hello, world!</h1>,
   //element,
@@ -229,7 +244,8 @@ ReactDOM.render(
   // <Clock></Clock>,
   // <Greeting isLoggedIn={false} />,
   // <LoginControl></LoginControl>,
-  <Page></Page>,
+  // <Page></Page>,
+  <NumberList numbers={numbers}></NumberList>,
   document.getElementById('root')
 );
 
