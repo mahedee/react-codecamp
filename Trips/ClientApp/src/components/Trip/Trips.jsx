@@ -5,10 +5,14 @@ export class Trips extends Component
 {
     constructor(props){
         super(props);
+        this.onTripUpdate = this.onTripUpdate.bind(this);
+        this.onTripDelete = this.onTripDelete.bind(this);
 
         this.state = {
             trips: [],
-            loading: true
+            loading: true,
+            failed: false,
+            error: ''
         }
     }
 
@@ -16,11 +20,24 @@ export class Trips extends Component
         this.populateTripsData();
     }
 
+    onTripUpdate(id){
+        const {history} = this.props;
+        history.push('/update/'+id);
+    }
+
+    onTripDelete(id){
+        const {history} = this.props;
+        history.push('/delete/'+id);
+    }
+
+
     populateTripsData(){
         axios.get("api/Trips/GetTrips").then(result => {
             const response = result.data;
-            this.setState({trips: response, loading: false});
-        })
+            this.setState({trips: response, loading: false, failed: false, error: ""});
+        }).catch(error => {
+            this.setState({trips: [], loading: false, failed: true, error: "Trips could not be loaded!"});
+        });
     }
 
     renderAllTripsTable(trips){
@@ -41,9 +58,18 @@ export class Trips extends Component
                             <tr key={trip.id}> 
                             <td>{trip.name}</td>
                             <td>{trip.description}</td> 
-                            <td>{new Date(trip.dateStarted).toLocaleDateString()}</td>
-                            <td>{trip.dateCompleted ? new Date(trip.dateCompleted).toLocaleDateString() : '-'}</td>
-                            <td>..</td>
+                            <td>{new Date(trip.dateStarted).toISOString().slice(0,10)}</td>
+                            <td>{trip.dateCompleted ? new Date(trip.dateCompleted).toISOString().slice(0,10) : '-'}</td>
+                            <td>
+                                <div className="from-group">
+                                    <button onClick={() => this.onTripUpdate(trip.id)} className= "btn btn-success">
+                                        Update
+                                    </button>
+                                    <button onClick={() => this.onTripDelete(trip.id)} className= "btn btn-danger">
+                                        Delete
+                                    </button>
+                                </div>
+                            </td>
                             </tr>
                             ))
                         }
@@ -57,8 +83,13 @@ export class Trips extends Component
          <p>
              <em>Loading...</em>
          </p>   
-         ): (
-             this.renderAllTripsTable(this.state.trips)
+         ): (this.state.failed ? (
+             <div className="text-danger">
+                 <em>{this.state.error}</em>
+             </div>
+         ) : ( 
+             this.renderAllTripsTable(this.state.trips))
+            
          )
 
         return(
