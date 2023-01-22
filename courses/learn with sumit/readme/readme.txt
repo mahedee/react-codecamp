@@ -8,7 +8,12 @@ Complete upto #1
 https://babeljs.io/ 
 
 
+Environment setup
+- ESLint, Formatting with Prettier
+
 Keyword:
 
 Intepolation
 Paint Flashing in HTML
+Performance tab in Browser
+Virtual dom
