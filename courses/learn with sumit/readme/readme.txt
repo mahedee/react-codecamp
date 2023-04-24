@@ -2,7 +2,7 @@ References:
 
 https://www.youtube.com/playlist?list=PLHiZ4m8vCp9M6HVQv7a36cp8LKzyHIePr
 
-Complete upto #16
+Complete upto #18
 
 //javascript compiler
 https://babeljs.io/ 
