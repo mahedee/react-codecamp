@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactCore", "ReactCore\ReactCore.csproj", "{FD37A3E1-2356-4515-A71E-B5E85AE29722}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD37A3E1-2356-4515-A71E-B5E85AE29722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD37A3E1-2356-4515-A71E-B5E85AE29722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD37A3E1-2356-4515-A71E-B5E85AE29722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD37A3E1-2356-4515-A71E-B5E85AE29722}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FE9C52A-CF3D-4C34-8BAA-42D063BF71E4}
+	EndGlobalSection
+EndGlobal
