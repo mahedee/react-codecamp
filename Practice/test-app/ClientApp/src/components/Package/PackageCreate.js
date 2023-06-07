@@ -24,6 +24,9 @@ export default class PackageCreate extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+
+    //alert(e.target.name);
+    //alert(e.target.value);
     
     // if (e.target.name === 'isActive') {
     //   this.setState({
@@ -42,7 +45,16 @@ export default class PackageCreate extends Component {
     GetAllClient()
       .then((result) => {
         const response = result.data;
+
+        console.log("Get all response", response);
         this.setState({ clients: response, loading: false, error: "" });
+
+        //var clientId = ;
+        // set for the first tiem
+        this.setState({ clientId: response[0].id, loading: false, error: "" });
+
+
+
       })
       .catch((error) => {
         this.setState({
@@ -125,7 +137,7 @@ export default class PackageCreate extends Component {
                 name="clientId"
                 className="form-control"
                 onChange={this.onChange}
-                value={this.state.clientId}
+                //value={this.state.clientId}
               >
                 {ddlClients}
               </select>
