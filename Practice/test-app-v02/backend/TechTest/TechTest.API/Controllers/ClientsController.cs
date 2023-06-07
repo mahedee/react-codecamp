@@ -27,7 +27,7 @@ namespace TechTest.API.Controllers
             return response;
         }
 
-        //// GET: api/Clients/5
+        // GET: api/Clients/5
         //[HttpGet("{id}")]
         //public async Task<ActionResult<Client>> GetClient(int id)
         //{
