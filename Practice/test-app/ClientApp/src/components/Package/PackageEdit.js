@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { AddClient, GetAllClient } from "../../services/ClientService";
-import { AddPackage, GetPackageById } from "../../services/PackageService";
+import { AddPackage, EditPackages, GetPackageById } from "../../services/PackageService";
 
 export default class PackageEdit extends Component {
     constructor(props) {
@@ -44,7 +44,7 @@ export default class PackageEdit extends Component {
         const packageId = window.location.href.split('/')[4]
         GetPackageById(packageId).then((result) => {
             const response = result.data;
-            this.setState({ clientId: response.clientId, packageName: response.packageName, 
+            this.setState({ id: response.id, clientId: response.clientId, packageName: response.packageName, 
                 loading: false, error: "" });
             console.log("load client id: ", response.clientId);
           })
@@ -97,17 +97,15 @@ export default class PackageEdit extends Component {
         //const { history } = this.props;
     
         let packageObj = {
-          id: 0,
+          id: this.state.id,
           clientId: this.state.clientId,
           packageName: this.state.packageName,
         };
-    
-        // axios.post("api/Employees/AddEmployee", employeeObj).then(result => {
-        //     history.push('/employees');
-        //})
+
     
         console.log("Package obj", packageObj);
-        AddPackage(packageObj).then((result) => {
+
+        EditPackages(this.state.id,packageObj).then((result) => {
           window.location.replace("/package");
         });
       }
@@ -166,7 +164,7 @@ export default class PackageEdit extends Component {
                 <div className="form-group">
                   <input
                     type="submit"
-                    value="Add Package"
+                    value="Edit Package"
                     className="btn btn-primary"
                   ></input>
                 </div>
