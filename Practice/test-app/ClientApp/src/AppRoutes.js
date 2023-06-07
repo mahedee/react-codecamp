@@ -1,4 +1,7 @@
-import Client from "./components/Client";
+import Client from "./components/Client/Client";
+import ClientCreate from "./components/Client/ClientCreate";
+import ClientDelete from "./components/Client/ClientDelete";
+import ClientEdit from "./components/Client/ClientEdit";
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
@@ -24,6 +27,19 @@ const AppRoutes = [
   {
     path: '/package',
     element: <Package />
+  },
+  {
+    path: '/client-create',
+    element: <ClientCreate />
+  },
+  {
+    path: '/client-edit/:id',
+    element: <ClientEdit />
+  }
+  ,
+  {
+    path: '/client-delete/:id',
+    element: <ClientDelete />
   }
 ];
 
