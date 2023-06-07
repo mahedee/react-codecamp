@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { DeleteClient, GetClientById } from "../../services/ClientService";
 
-export default class Delete extends Component{
+export default class PackageDelete extends Component{
     constructor(props){
         super(props);
 

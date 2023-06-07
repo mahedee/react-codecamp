@@ -76,6 +76,7 @@ export default class Package extends Component {
         <thead>
           <tr>
             <th>Id</th>
+            <th>Client Id</th>
             <th>Package Name</th>
             <th>Actions</th>
           </tr>
@@ -84,6 +85,7 @@ export default class Package extends Component {
           {packages.map((_package) => (
             <tr key={_package.id}>
               <td>{_package.id}</td>
+              <td>{_package.clientId}</td>
               <td>{_package.packageName}</td>
               <td>
                 <Link

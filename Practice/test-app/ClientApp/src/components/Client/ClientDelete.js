@@ -1,6 +1,5 @@
-import axios from "axios";
 import React, { Component } from "react";
-import { DeleteClient, GetClientById } from "../../services/ClientService";
+import { DeletePackage, GetPackageById } from "../../services/PackageService";
 
 export default class Delete extends Component{
     constructor(props){
@@ -11,27 +10,27 @@ export default class Delete extends Component{
 
         this.state = {
             id: '',
-            firstName: '',
-            lastName: ''
+            clientId: '',
+            packageName: ''
         }
     }
 
     componentDidMount(){
       const id = window.location.href.split('/')[4]
 
-        GetClientById(id).then(response =>{
-          const client = response.data;
+      GetPackageById(id).then(response =>{
+          const _package = response.data;
           this.setState({
-              id : client.id,
-              firstName: client.firstName,
-              lastName: client.lastName
+              id : _package.id,
+              clientId: _package.clientId,
+              packageName: _package.packageName
           })
       })
     }
 
     onCancel() {
         //const { history } = this.props;
-        window.location.replace("/client");
+        window.location.replace("/package");
         //history.push('/employees');
     }
 
@@ -46,8 +45,8 @@ export default class Delete extends Component{
         //     history.push('/employees');
         // })
 
-        DeleteClient(id).then(result => {
-          window.location.replace("/client");
+        DeletePackage(id).then(result => {
+          window.location.replace("/package");
           })
 
     } 
@@ -59,7 +58,7 @@ export default class Delete extends Component{
                 <h2>Delete</h2>
                 <h3>Are you sure you want to delete this?</h3>
                 <div>
-                <h4>Client</h4>
+                <h4>Package</h4>
                     <dl className="row">
                         <dt className="col-sm-2">
                             Id:
@@ -68,16 +67,16 @@ export default class Delete extends Component{
                             {this.state.id}
                         </dd>
                         <dt className="col-sm-2">
-                            First Name:
+                            Client Id:
                         </dt>
                         <dd className="col-sm-10">
-                            {this.state.firstName}
+                            {this.state.clientId}
                         </dd>
                         <dt className="col-sm-2">
-                            Last Name:
+                            Package Name:
                         </dt>
                         <dd className="col-sm-10">
-                            {this.state.lastName}
+                            {this.state.packageName}
                         </dd>
 
                     </dl>
