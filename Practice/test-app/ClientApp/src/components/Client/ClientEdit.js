@@ -59,8 +59,7 @@ export default class ClientEdit extends Component {
     onSubmit(e){
        
         e.preventDefault();
-        const {history} = this.props;
-        const {id} = this.props.match.params;
+        const id = window.location.href.split('/')[4]
         let clientObj = {
             id: this.state.id,
             firstName: this.state.firstName,
