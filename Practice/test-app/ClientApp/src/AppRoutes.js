@@ -7,6 +7,7 @@ import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Package from "./components/Package/Package";
 import PackageCreate from "./components/Package/PackageCreate";
+import PackageDelete from "./components/Package/PackageDelete";
 import PackageEdit from "./components/Package/PackageEdit";
 
 const AppRoutes = [
@@ -26,10 +27,7 @@ const AppRoutes = [
     path: '/client',
     element: <Client />
   },
-  {
-    path: '/package',
-    element: <Package/>
-  },
+
   {
     path: '/client-create',
     element: <ClientCreate/>
@@ -44,12 +42,20 @@ const AppRoutes = [
     element: <ClientDelete />
   },
   {
+    path: '/package',
+    element: <Package/>
+  },
+  {
     path: '/package-create',
     element: <PackageCreate/>
   },
   {
     path: '/package-edit/:id',
     element: <PackageEdit/>
+  },
+  {
+    path: '/package-delete/:id',
+    element: <PackageDelete/>
   },
 ];
 

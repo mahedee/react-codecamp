@@ -48,7 +48,7 @@ export default class Package extends Component {
 
     // const timeout = setTimeout(() => {
     // redirects to an external URL
-    window.location.replace("/client-delete/" + id);
+    window.location.replace("/package-delete/" + id);
     // }, 10);
 
     // return () => clearTimeout(timeout);

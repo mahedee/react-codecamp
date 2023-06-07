@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { Component } from "react";
-import { DeletePackage, GetPackageById } from "../../services/PackageService";
+import { DeleteClient, GetClientById } from "../../services/ClientService";
 
-export default class PackageDelete extends Component{
+export default class PackageDelete_old extends Component{
     constructor(props){
         super(props);
 
@@ -10,32 +11,34 @@ export default class PackageDelete extends Component{
 
         this.state = {
             id: '',
-            clientId: '',
-            packageName: ''
+            firstName: '',
+            lastName: ''
         }
     }
 
     componentDidMount(){
       const id = window.location.href.split('/')[4]
 
-      GetPackageById(id).then(response =>{
-          const _package = response.data;
+        GetClientById(id).then(response =>{
+          const client = response.data;
           this.setState({
-              id : _package.id,
-              clientId: _package.clientId,
-              packageName: _package.packageName
+              id : client.id,
+              firstName: client.firstName,
+              lastName: client.lastName
           })
       })
     }
 
     onCancel() {
         //const { history } = this.props;
-        window.location.replace("/package");
+        window.location.replace("/client");
         //history.push('/employees');
     }
 
     onConfirmation(e){
         e.preventDefault();
+
+        alert("delete confirmation");
 
         const id = window.location.href.split('/')[4]
         // const {id} = this.props.match.params;
@@ -45,10 +48,8 @@ export default class PackageDelete extends Component{
         //     history.push('/employees');
         // })
 
-        alert("Package delete");
-
-        DeletePackage(id).then(result => {
-          window.location.replace("/package");
+        DeleteClient(id).then(result => {
+          window.location.replace("/client");
           })
 
     } 
@@ -60,7 +61,7 @@ export default class PackageDelete extends Component{
                 <h2>Delete</h2>
                 <h3>Are you sure you want to delete this?</h3>
                 <div>
-                <h4>Package</h4>
+                <h4>Client</h4>
                     <dl className="row">
                         <dt className="col-sm-2">
                             Id:
@@ -69,16 +70,16 @@ export default class PackageDelete extends Component{
                             {this.state.id}
                         </dd>
                         <dt className="col-sm-2">
-                            Client Id:
+                            First Name:
                         </dt>
                         <dd className="col-sm-10">
-                            {this.state.clientId}
+                            {this.state.firstName}
                         </dd>
                         <dt className="col-sm-2">
-                            Package Name:
+                            Last Name:
                         </dt>
                         <dd className="col-sm-10">
-                            {this.state.packageName}
+                            {this.state.lastName}
                         </dd>
 
                     </dl>
@@ -86,7 +87,7 @@ export default class PackageDelete extends Component{
                     <form onSubmit={this.onConfirmation}>
                         <input type="hidden" asp-for="Id" />
                         <button type="submit" className="btn btn-danger">Delete</button> |
-                        <button type="button" onClick={this.onCancel} className="btn btn-primary">Back to List</button>
+                        <button onClick={this.onCancel} className="btn btn-primary">Back to List</button>
                     </form>
                 </div>
             </div>
