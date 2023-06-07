@@ -8,7 +8,7 @@ namespace TechTest.API.Model
         public int ClientId { get; set; }
         public string PackageName { get; set; }
 
-        [ForeignKey("ClientId")]
-        public virtual Client Client { get; set; }
+        //[ForeignKey("ClientId")]
+        //public Client Client { get; set; }
     }
 }
