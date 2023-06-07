@@ -89,7 +89,7 @@ export default class Package extends Component {
               <td>{_package.packageName}</td>
               <td>
                 <Link
-                  to={"/client-edit/" + _package.id}
+                  to={"/package-edit/" + _package.id}
                   className="btn btn-success"
                 >
                   <i className="fa fa-edit"></i> Edit

@@ -7,6 +7,7 @@ import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Package from "./components/Package/Package";
 import PackageCreate from "./components/Package/PackageCreate";
+import PackageEdit from "./components/Package/PackageEdit";
 
 const AppRoutes = [
   {
@@ -45,6 +46,10 @@ const AppRoutes = [
   {
     path: '/package-create',
     element: <PackageCreate/>
+  },
+  {
+    path: '/package-edit/:id',
+    element: <PackageEdit/>
   },
 ];
 
