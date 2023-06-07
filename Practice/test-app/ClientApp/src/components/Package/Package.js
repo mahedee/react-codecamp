@@ -121,7 +121,7 @@ export default class Package extends Component {
     return (
       <div>
         <h2>Packages</h2>
-        <Link to={"/client-create"} className="btn btn-primary">
+        <Link to={"/package-create"} className="btn btn-primary">
           Create
         </Link>
         {content}

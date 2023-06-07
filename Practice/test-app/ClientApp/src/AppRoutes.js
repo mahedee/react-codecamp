@@ -6,6 +6,7 @@ import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Package from "./components/Package/Package";
+import PackageCreate from "./components/Package/PackageCreate";
 
 const AppRoutes = [
   {
@@ -40,7 +41,11 @@ const AppRoutes = [
   {
     path: '/client-delete/:id',
     element: <ClientDelete />
-  }
+  },
+  {
+    path: '/package-create',
+    element: <PackageCreate/>
+  },
 ];
 
 export default AppRoutes;
