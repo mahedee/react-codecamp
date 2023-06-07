@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TechTest.API.Db;
 using TechTest.API.Model;
@@ -22,7 +17,7 @@ namespace TechTest.API.Controllers
         }
 
         // GET: api/Packages
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<ActionResult<IEnumerable<Package>>> GetPackages()
         {
           if (_context.Packages == null)
@@ -52,7 +47,7 @@ namespace TechTest.API.Controllers
 
         // PUT: api/Packages/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("Edit/{id}")]
         public async Task<IActionResult> PutPackage(int id, Package package)
         {
             if (id != package.Id)
@@ -83,7 +78,7 @@ namespace TechTest.API.Controllers
 
         // POST: api/Packages
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<ActionResult<Package>> PostPackage(Package package)
         {
           if (_context.Packages == null)
@@ -97,7 +92,7 @@ namespace TechTest.API.Controllers
         }
 
         // DELETE: api/Packages/5
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         public async Task<IActionResult> DeletePackage(int id)
         {
             if (_context.Packages == null)

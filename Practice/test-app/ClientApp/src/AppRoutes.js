@@ -5,7 +5,7 @@ import ClientEdit from "./components/Client/ClientEdit";
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
-import Package from "./components/Package";
+import Package from "./components/Package/Package";
 
 const AppRoutes = [
   {
@@ -26,7 +26,7 @@ const AppRoutes = [
   },
   {
     path: '/package',
-    element: <Package />
+    element: <Package/>
   },
   {
     path: '/client-create',
