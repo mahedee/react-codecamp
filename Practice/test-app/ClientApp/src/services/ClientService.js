@@ -12,9 +12,9 @@ export const GetAllClient = () =>{
 }
 
 
-export const AddItemToCart = (data) =>{
+export const AddClient = (data) =>{
     try{
-        const response = axios.post(Base_API_URL + `/Cart/AddItemToCart`, data);
+        const response = axios.post(Base_API_URL + `/Clients/Add`, data);
         return response;
     }catch(error){
         throw error;
@@ -22,9 +22,9 @@ export const AddItemToCart = (data) =>{
 }
 
 
-export const GetUsersCart = () =>{
+export const GetClientById = (id) =>{
     try{
-        const response = axios.get(Base_API_URL + `/Cart/GetUsersCart`);
+        const response = axios.get(Base_API_URL + `/Clients/` + id);
         return response;
 
     }catch(error){
@@ -32,10 +32,9 @@ export const GetUsersCart = () =>{
     }
 }
 
-  export const EditCartItem = (id, data) => {
+  export const EditClient = (id, data) => {
     try {
-      console.log("input data", data);
-      const response = axios.put(Base_API_URL + `/Cart/Edit/${id}`, data);
+      const response = axios.put(Base_API_URL + `/Clients/Edit/${id}`, data);
       return response;
     } catch (error) {
       throw error;
@@ -43,9 +42,9 @@ export const GetUsersCart = () =>{
   };
 
 
-export const DeleteCartItem = (id) => {
+export const DeleteClient = (id) => {
     try {
-      const response = axios.delete(Base_API_URL + `/Cart/Delete/${id}`);
+      const response = axios.delete(Base_API_URL + `/Clients/Delete/${id}`);
       return response;
     } catch (error) {
       throw error;

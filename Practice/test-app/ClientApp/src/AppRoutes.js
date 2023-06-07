@@ -30,7 +30,7 @@ const AppRoutes = [
   },
   {
     path: '/client-create',
-    element: <ClientCreate />
+    element: <ClientCreate/>
   },
   {
     path: '/client-edit/:id',

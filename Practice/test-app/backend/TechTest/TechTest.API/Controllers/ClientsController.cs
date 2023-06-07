@@ -52,7 +52,7 @@ namespace TechTest.API.Controllers
 
         // PUT: api/Clients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("Edit/{id}")]
         public async Task<IActionResult> PutClient(int id, Client client)
         {
             if (id != client.Id)
@@ -83,7 +83,7 @@ namespace TechTest.API.Controllers
 
         // POST: api/Clients
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<ActionResult<Client>> PostClient(Client client)
         {
           if (_context.Clients == null)
@@ -97,7 +97,7 @@ namespace TechTest.API.Controllers
         }
 
         // DELETE: api/Clients/5
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         public async Task<IActionResult> DeleteClient(int id)
         {
             if (_context.Clients == null)

@@ -36,8 +36,9 @@ export default class Client extends Component {
 
   // Event handler for edit button
   OnClientEdit(id) {
-    const { history } = this.props;
-    history.push("/edit/" + id);
+    //const { history } = this.props;
+   //history.push("/edit/" + id);
+    window.location.replace("/client-edit/"+id);
   }
 
   // Event handler for delete button
@@ -47,12 +48,12 @@ export default class Client extends Component {
     // console.log("Delete button clicked", id);
     // window.Location='/client-create';
 
-    const timeout = setTimeout(() => {
-      // 👇️ redirects to an external URL
+    // const timeout = setTimeout(() => {
+      // redirects to an external URL
       window.location.replace('/client-delete/'+id);
-    }, 10);
+    // }, 10);
 
-    return () => clearTimeout(timeout);
+    // return () => clearTimeout(timeout);
 
 
 
@@ -92,18 +93,25 @@ export default class Client extends Component {
               <td>{client.firstName}</td>
               <td>{client.lastName}</td>
               <td>
-                {/* <button
+                {
+                /* 
+                <button
                   onClick={() => this.OnClientEdit(client.id)}
                   className="btn btn-success"
                 >
                   Edit
-                </button> */}
+                </button> 
+                */
+                }
+
                 <Link
                   to={"/client-edit/" + client.id}
                   className="btn btn-success"
                 >
                   <i className="fa fa-edit"></i> Edit
-                </Link>{" "}
+                </Link>
+                
+                {" "}
                 ||
                 <button
                   onClick={() => this.OnClientDelete(client.id)}
