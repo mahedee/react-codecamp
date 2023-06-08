@@ -1,6 +1,6 @@
 ﻿
+using TechTest.Core.Entities;
 using TechTest.Core.Interfaces.Base;
-using TTechTest.Core.Entities;
 
 namespace TechTest.Core.Interfaces
 {

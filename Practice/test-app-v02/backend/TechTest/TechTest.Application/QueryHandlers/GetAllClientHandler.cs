@@ -1,7 +1,8 @@
 ﻿using MediatR;
-using Ordering.Application.Queries;
+using TechTest.Application.Queries;
+using TechTest.Core.Entities;
 using TechTest.Core.Interfaces;
-using TTechTest.Core.Entities;
+
 
 namespace Ordering.Application.Handlers.QueryHandlers
 {

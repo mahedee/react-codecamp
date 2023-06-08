@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 using TechTest.Application.Commands;
 using TechTest.Application.Common;
 using TechTest.Application.DTOs;
+using TechTest.Core.Entities;
 using TechTest.Core.Interfaces;
-using TTechTest.Core.Entities;
 
 namespace TechTest.Application.CommandHandler
 {

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TechTest.Core.Entities;
-using TTechTest.Core.Entities;
 
 namespace TechTest.Infrastructure.Persistence
 {

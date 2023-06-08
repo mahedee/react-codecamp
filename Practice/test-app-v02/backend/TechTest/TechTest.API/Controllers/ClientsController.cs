@@ -1,8 +1,11 @@
-﻿using MediatR;
+﻿using Location.Application.Queries.Countries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Ordering.Application.Queries;
+using Microsoft.EntityFrameworkCore;
 using TechTest.Application.Commands;
-using TTechTest.Core.Entities;
+using TechTest.Application.Queries;
+using TechTest.Core.Entities;
+using TechTest.Infrastructure.Persistence;
 
 namespace TechTest.API.Controllers
 {
@@ -10,13 +13,14 @@ namespace TechTest.API.Controllers
     [ApiController]
     public class ClientsController : ControllerBase
     {
-        //private readonly TechTestContext _context;
+        private readonly TechTestContext _context;
 
         private readonly IMediator _mediator;
 
-        public ClientsController(IMediator mediator)
+        public ClientsController(IMediator mediator, TechTestContext context)
         {
             _mediator = mediator;
+            _context = context;
         }
 
         // GET: api/Clients
@@ -27,54 +31,49 @@ namespace TechTest.API.Controllers
             return response;
         }
 
-        // GET: api/Clients/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Client>> GetClient(int id)
-        //{
-        //    if (_context.Clients == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var client = await _context.Clients.FindAsync(id);
+        //GET: api/Clients/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Client>> GetClient(int id)
+        {
 
-        //    if (client == null)
-        //    {
-        //        return NotFound();
-        //    }
+            var response = await _mediator.Send(new GetClientByIdQuery(id));
+            if (response == null)
+            {
+                return NotFound("Country information not found");
+            }
+            return Ok(response);
+        }
 
-        //    return client;
-        //}
+        // PUT: api/Clients/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("Edit/{id}")]
+        public async Task<IActionResult> PutClient(int id, Client client)
+        {
+            if (id != client.Id)
+            {
+                return BadRequest();
+            }
 
-        //// PUT: api/Clients/5
-        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPut("Edit/{id}")]
-        //public async Task<IActionResult> PutClient(int id, Client client)
-        //{
-        //    if (id != client.Id)
-        //    {
-        //        return BadRequest();
-        //    }
+            _context.Entry(client).State = EntityState.Modified;
 
-        //    _context.Entry(client).State = EntityState.Modified;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ClientExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!ClientExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
+            return NoContent();
+        }
 
         // POST: api/Clients
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -84,41 +83,31 @@ namespace TechTest.API.Controllers
 
             var response = await _mediator.Send(command);
             return Ok(response);
-
-
-            //if (_context.Clients == null)
-            //{
-            //    return Problem("Entity set 'TechTestContext.Clients'  is null.");
-            //}
-            //_context.Clients.Add(client);
-            //await _context.SaveChangesAsync();
-
-            //return CreatedAtAction("GetClient", new { id = client.Id }, client);
         }
 
-        //// DELETE: api/Clients/5
-        //[HttpDelete("Delete/{id}")]
-        //public async Task<IActionResult> DeleteClient(int id)
-        //{
-        //    if (_context.Clients == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var client = await _context.Clients.FindAsync(id);
-        //    if (client == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // DELETE: api/Clients/5
+        [HttpDelete("Delete/{id}")]
+        public async Task<IActionResult> DeleteClient(int id)
+        {
+            if (_context.Clients == null)
+            {
+                return NotFound();
+            }
+            var client = await _context.Clients.FindAsync(id);
+            if (client == null)
+            {
+                return NotFound();
+            }
 
-        //    _context.Clients.Remove(client);
-        //    await _context.SaveChangesAsync();
+            _context.Clients.Remove(client);
+            await _context.SaveChangesAsync();
 
-        //    return NoContent();
-        //}
+            return NoContent();
+        }
 
-        //private bool ClientExists(int id)
-        //{
-        //    return (_context.Clients?.Any(e => e.Id == id)).GetValueOrDefault();
-        //}
+        private bool ClientExists(int id)
+        {
+            return (_context.Clients?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
     }
 }

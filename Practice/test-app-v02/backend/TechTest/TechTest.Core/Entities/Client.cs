@@ -1,6 +1,6 @@
 ﻿using TechTest.Core.Entities.Base;
 
-namespace TTechTest.Core.Entities
+namespace TechTest.Core.Entities
 {
     public class Client : BaseEntity
     {

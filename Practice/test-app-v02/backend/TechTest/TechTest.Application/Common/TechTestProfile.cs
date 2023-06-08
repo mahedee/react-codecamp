@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTest.Application.Commands;
 using TechTest.Application.DTOs;
-using TTechTest.Core.Entities;
+using TechTest.Core.Entities;
 
 namespace TechTest.Application.Common
 {
