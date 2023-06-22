@@ -3,10 +3,10 @@
 1. [Building React Apps with TypeScript](https://app.pluralsight.com/library/courses/react-apps-typescript-building/table-of-contents)
 
 ## Complete up to
-- 7:08: Summary (completed)
+- 2:02: Creating a React App with Typescript
 
 ## Keywords
-- Javascript template string, Debug typescript in browser, Typescript Built-in types, union type, enum type, Typed parameters, async/await, optional parameters of functions, arrow functions, default function parameters, rest parameters, parameter destructuring, Javascript callback function, Creating and using interfaces, Difference between Interface vs Type, javascript class vs function, auto implemented properties, double bang (!!) operator in Javascript. create function in a class, Using Generics in Typescripts, Generic interface, Generic custom constraints, Generic Built-in constraints - Readonly, Partial
+- Configure Typescript
 
 ## Takeaways / notes
 - Tools - nodes, visual studio code, 
