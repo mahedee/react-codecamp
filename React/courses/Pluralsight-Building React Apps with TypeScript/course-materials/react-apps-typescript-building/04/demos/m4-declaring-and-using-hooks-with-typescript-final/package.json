@@ -1,0 +1,28 @@
+{
+  "name": "globomantics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "app": "cd app && npm run start",
+    "api": "cd api && npm run start",
+    "start": "run-p app api",
+    "codegen": "apollo client:codegen app/src/graphql-types.ts --endpoint http://localhost:4000/graphql --target typescript --includes=app/**/*.tsx --outputFlat"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "apollo": "^2.32.5",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "@types/node": "^14.14.27",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-router-dom": "^5.1.7",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "typescript": "^4.1.5"
+  }
+}
