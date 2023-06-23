@@ -34,6 +34,7 @@
 *[How to install Node Version Manager (NVM) for Windows 10?](https://dev.to/skaytech/how-to-install-node-version-manager-nvm-for-windows-10-4nbi)
 * https://www.freecodecamp.org/news/build-a-full-stack-application-with-nextjs/
 * https://nextjs.org/docs/pages/building-your-application/configuring/typescript
+* https://www.youtube.com/watch?v=9P8mASSREYM&list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH
 
 
 
