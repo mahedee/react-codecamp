@@ -4,12 +4,12 @@
 
 ## Complete up to
 
-- 5:05: Create App Layout
+- 7:02: Actions
 
 ## Keywords
 
 - Environment: Required Node 8 or upper version, Prettier, Configure prettier in VS Code tick for save and paste
-- Webpack, try bablejs.io, ESLit
+- Webpack, try bablejs.io, ESLit, Lift state, React context, Redux, Redux Reducers, Redux containers, Redux Immutability
 
 ## Takeaways / notes
 
@@ -17,6 +17,7 @@
 - To enable devtool in chrome - ctrl + shift + j -> source tab
 - Ways to create components - create class, ES Class, Function, Arrow Function
 - Container vs Presentation Components
+- Debug Js in chrome
 
 ## References
 
