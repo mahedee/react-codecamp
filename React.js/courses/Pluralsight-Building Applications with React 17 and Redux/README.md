@@ -4,7 +4,7 @@
 
 ## Complete up to
 
-- 4:01: Intro
+- 5:05: Create App Layout
 
 ## Keywords
 
@@ -15,6 +15,8 @@
 
 - Babel - Babel is a Javascript compiler.
 - To enable devtool in chrome - ctrl + shift + j -> source tab
+- Ways to create components - create class, ES Class, Function, Arrow Function
+- Container vs Presentation Components
 
 ## References
 
