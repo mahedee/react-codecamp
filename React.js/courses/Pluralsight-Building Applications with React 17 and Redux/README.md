@@ -4,7 +4,7 @@
 
 ## Complete up to
 
-- 7:02: Actions
+- 8:01: Actions
 
 ## Keywords
 
@@ -18,6 +18,7 @@
 - Ways to create components - create class, ES Class, Function, Arrow Function
 - Container vs Presentation Components
 - Debug Js in chrome
+- Each action can be handled by multiple reducers. Each reducer can handle multiple actions.
 
 ## References
 
