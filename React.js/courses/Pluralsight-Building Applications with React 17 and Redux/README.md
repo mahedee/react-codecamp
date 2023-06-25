@@ -4,12 +4,12 @@
 
 ## Complete up to
 
-- 8:01: Actions
+- 9:06: Create Course Reducer and RootReducer
 
 ## Keywords
 
 - Environment: Required Node 8 or upper version, Prettier, Configure prettier in VS Code tick for save and paste
-- Webpack, try bablejs.io, ESLit, Lift state, React context, Redux, Redux Reducers, Redux containers, Redux Immutability
+- Webpack, try bablejs.io, ESLit, Lift state, React context, Redux, Redux Reducers, Redux containers, Redux Immutability, object short hand syntax
 
 ## Takeaways / notes
 
