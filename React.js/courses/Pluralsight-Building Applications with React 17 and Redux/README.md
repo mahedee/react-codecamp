@@ -4,22 +4,26 @@
 
 ## Complete up to
 
-- 9:06: Create Course Reducer and RootReducer
+- 11:01: Intro
 
 ## Keywords
 
 - Environment: Required Node 8 or upper version, Prettier, Configure prettier in VS Code tick for save and paste
-- Webpack, try bablejs.io, ESLit, Lift state, React context, Redux, Redux Reducers, Redux containers, Redux Immutability, object short hand syntax
+- Webpack, try bablejs.io, ESLit, Lift state, React context, Redux, Redux Reducers, Redux containers, Redux Immutability, object short hand syntax, Mock API setup, Redux middleware, Async libraries, Json server, redux-thunk, redux-saga, redux-promise, redux-observable
 
 ## Takeaways / notes
 
 - Babel - Babel is a Javascript compiler.
-- To enable devtool in chrome - ctrl + shift + j -> source tab
+- Chrome extenstion - React Developer Tools, Redux DevTools
+- To enable devtool in chrome
+  - Add debugger statement in source code
+  - Type ctrl + shift + j -> source tab
 - Ways to create components - create class, ES Class, Function, Arrow Function
 - Container vs Presentation Components
 - Debug Js in chrome
 - Each action can be handled by multiple reducers. Each reducer can handle multiple actions.
+- run-p - This command allows us to run multiple npm scripts at the same time. Here p means parallel.
 
 ## References
 
--
+- [How to use JSON file as a server for fake API in React JS](https://medium.com/how-to-react/how-to-use-json-file-as-a-server-for-fake-api-in-react-js-6b72606023b7)

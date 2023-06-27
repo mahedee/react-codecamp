@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as couresActions from "../../redux/actions/courseActions";
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
 
-export default class CoursesPage extends Component {
+class CoursesPage extends Component {
   //constructor(props) {
   //super(props);
 
@@ -26,7 +30,14 @@ export default class CoursesPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    alert(this.state.course.title);
+
+    //debugger;
+    // redux: dispatch an action
+    //this.props.dispatch(couresActions.createCourse(this.state.course));
+    //alert(this.state.course.title);
+
+    // We don't need to call dispatch here since that's being hanlde in mapDispatchToProps now.
+    this.props.actions.createCourse(this.state.course);
   };
 
   render() {
@@ -40,7 +51,34 @@ export default class CoursesPage extends Component {
           value={this.state.course.title}
         />
         <input type="submit" value="Save" />
+        {this.props.courses.map((course) => (
+          <div key={course.title}>{course.title}</div>
+        ))}
       </form>
     );
   }
 }
+
+CoursesPage.propTypes = {
+  courses: PropTypes.array.isRequired,
+  //dispatch: PropTypes.func.isRequired,
+
+  // Since we declared mapDispatchToProps, dispatch is no longer injected. Only the actions we declared in mapDispatchToProps are passed
+  actions: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
+  //debugger;
+  return {
+    courses: state.courses,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    // createCourse: (course) => dispatch(couresActions.createCourse(course)),
+    actions: bindActionCreators(couresActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
