@@ -4,12 +4,12 @@
 
 ## Complete up to
 
-- 11:01: Intro
+- 11:09: Implement Centralized Change Handler
 
 ## Keywords
 
 - Environment: Required Node 8 or upper version, Prettier, Configure prettier in VS Code tick for save and paste
-- Webpack, try bablejs.io, ESLit, Lift state, React context, Redux, Redux Reducers, Redux containers, Redux Immutability, object short hand syntax, Mock API setup, Redux middleware, Async libraries, Json server, redux-thunk, redux-saga, redux-promise, redux-observable
+- Webpack, try bablejs.io, ESLit, Lift state, React context, Redux, Redux Reducers, Redux containers, Redux Immutability, object short hand syntax, Mock API setup, Redux middleware, Async libraries, Json server, redux-thunk, redux-saga, redux-promise, redux-observable, rest function argument,
 
 ## Takeaways / notes
 
