@@ -1,6 +1,6 @@
 import React, { useEffect, Component, useState } from "react";
 import { connect } from "react-redux";
-import { loadCourses } from "../../redux/actions/courseActions";
+import { loadCourses, saveCourse } from "../../redux/actions/courseActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
 // the PropTypes module is used to define and validate the types of props passed to a component
 import PropTypes from "prop-types";
@@ -13,6 +13,7 @@ function ManageCoursePage({
   authors,
   loadAuthors,
   loadCourses,
+  saveCourse,
   ...props
 }) {
   const [course, setCourse] = useState({ ...props.course });
@@ -42,12 +43,20 @@ function ManageCoursePage({
     }));
   }
 
+  function handleSave(event) {
+    event.preventDefault();
+
+    //The bound savCourse on props takes precedence over the unbound saveCourse thunk at the top
+    saveCourse(course);
+  }
+
   return (
     <CourseForm
       course={course}
       errors={errors}
       authors={authors}
       onChange={handleChange}
+      onSave={handleSave}
     ></CourseForm>
   );
 }
@@ -58,6 +67,7 @@ ManageCoursePage.propTypes = {
   courses: PropTypes.array.isRequired,
   loadCourses: PropTypes.func.isRequired,
   loadAuthors: PropTypes.func.isRequired,
+  saveCourse: PropTypes.func.isRequired,
 };
 
 // redux mapping functions
@@ -84,6 +94,7 @@ const mapDispatchToProps = {
   // we can use javascript short hand syntax
   loadCourses: loadCourses,
   loadAuthors: loadAuthors,
+  saveCourse: saveCourse,
 };
 
 // connect component to redux using redux function

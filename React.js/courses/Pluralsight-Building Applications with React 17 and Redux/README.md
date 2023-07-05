@@ -4,7 +4,7 @@
 
 ## Complete up to
 
-- 11:09: Implement Centralized Change Handler
+- 11:12: Dispatch Create and Updates
 
 ## Keywords
 
