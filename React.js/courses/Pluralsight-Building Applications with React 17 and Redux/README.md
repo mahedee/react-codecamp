@@ -4,7 +4,7 @@
 
 ## Complete up to
 
-- 11:12: Dispatch Create and Updates
+- 11:13: Redirect via React Router's Redirect
 
 ## Keywords
 
