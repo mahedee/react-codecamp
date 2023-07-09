@@ -14,6 +14,7 @@ function ManageCoursePage({
   loadAuthors,
   loadCourses,
   saveCourse,
+  history,
   ...props
 }) {
   const [course, setCourse] = useState({ ...props.course });
@@ -24,6 +25,8 @@ function ManageCoursePage({
       loadCourses().catch((error) => {
         alert("Loading courses failed" + error);
       });
+    } else {
+      setCourse({ ...props.course });
     }
 
     if (authors.length === 0) {
@@ -31,7 +34,7 @@ function ManageCoursePage({
         alert("Loading authors failed" + error);
       });
     }
-  }, []);
+  }, [props.course]);
   // The empty array as a second argument to effect means
   // the effect will run once when the component mounts
 
@@ -47,7 +50,9 @@ function ManageCoursePage({
     event.preventDefault();
 
     //The bound savCourse on props takes precedence over the unbound saveCourse thunk at the top
-    saveCourse(course);
+    saveCourse(course).then(() => {
+      history.push("/courses");
+    });
   }
 
   return (
@@ -68,13 +73,33 @@ ManageCoursePage.propTypes = {
   loadCourses: PropTypes.func.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   saveCourse: PropTypes.func.isRequired,
+
+  // Any component loaded via <Route> gets history passed in on props from React Router automatically
+  history: PropTypes.object.isRequired,
 };
+
+export function getCourseBySlug(courses, slug) {
+  return courses.find((course) => course.slug == slug) || null;
+}
 
 // redux mapping functions
 // to map the Redux store's state to the props of a React component.
-function mapStateToProps(state) {
+// ownProps: This lets us access the component's props. we can use this to read the URL data injected on props by React Router
+function mapStateToProps(state, ownProps) {
+  const slug = ownProps.match.params.slug;
+
+  //debugger;
+  // if url exists its edit if url is empty is add
+  const course =
+    slug && state.courses.length > 0
+      ? getCourseBySlug(state.courses, slug)
+      : newCourse;
   return {
-    course: newCourse,
+    //course: newCourse,
+    //course: course,
+
+    //use shorthand syntax
+    course,
     courses: state.courses,
     authors: state.authors,
   };

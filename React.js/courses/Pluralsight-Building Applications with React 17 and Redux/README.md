@@ -4,7 +4,7 @@
 
 ## Complete up to
 
-- 11:13: Redirect via React Router's Redirect
+- 12:01: Intro
 
 ## Keywords
 
