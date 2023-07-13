@@ -4,7 +4,7 @@
 
 ## Complete up to
 
-- 12:01: Intro
+- 12:05: Add Spinner to Course Pages
 
 ## Keywords
 
